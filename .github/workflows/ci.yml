@@ -37,7 +37,6 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       # TODO: infrastructure for integration tests with docker-compose
-
 #      - name: Run Tests
 #        run: mvn -B test
 
