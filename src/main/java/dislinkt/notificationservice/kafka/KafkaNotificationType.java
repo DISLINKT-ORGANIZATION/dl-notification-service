@@ -8,7 +8,9 @@ public enum KafkaNotificationType implements Serializable {
     CONNECTION_REQUEST(0),
     MESSAGE_SENT(1),
     NEW_POST(2),
-    LIKE(3);
+    LIKE(3),
+    COMMENT(4),
+    NEW_CONNECTION(5);
 
     private int value;
     private static Map map = new HashMap<>();
