@@ -5,6 +5,7 @@ public enum NotificationType {
     CONNECTION_REQUEST,
     MESSAGE_SENT,
     NEW_POST,
-    LIKE
-
+    LIKE,
+    COMMENT,
+    NEW_CONNECTION
 }
