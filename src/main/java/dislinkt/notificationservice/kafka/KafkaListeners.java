@@ -35,20 +35,26 @@ public class KafkaListeners {
 
         Notification notification = notificationService.save(data);
         SocketIONamespace namespace = server.getNamespace("/notification");
-
+        socketService.sendNotification(notification.getRecipientId() + "", namespace, notification);
+        // log message type
         switch (data.getType()) {
             case MESSAGE_SENT:
-                socketService.sendNotification(notification.getRecipientId() + "", namespace, notification);
-                System.out.println("MESSAGE_SENT");
+                logger.info("[EVENT]: MESSAGE_SENT");
                 break;
             case CONNECTION_REQUEST:
-                System.out.println("[EVENT]:  CONNECTION_REQUEST");
+                logger.info("[EVENT]: CONNECTION_REQUEST");
                 break;
             case NEW_POST:
-                System.out.println("[EVENT]: NEW_POST");
+                logger.info("[EVENT]: NEW_POST");
                 break;
             case LIKE:
-                System.out.println("[EVENT]: LIKE EVENT");
+                logger.info("[EVENT]: LIKE EVENT");
+                break;
+            case COMMENT:
+                logger.info("[EVENT]: COMMENT");
+                break;
+            case NEW_CONNECTION:
+                logger.info("[EVENT]: NEW CONNECTION");
                 break;
             default:
         }

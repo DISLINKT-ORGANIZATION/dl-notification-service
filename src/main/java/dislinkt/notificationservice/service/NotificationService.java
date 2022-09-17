@@ -44,6 +44,10 @@ public class NotificationService {
             return NotificationType.NEW_POST;
         } else if (event.name().equalsIgnoreCase("LIKE")) {
             return NotificationType.LIKE;
+        } else if (event.name().equalsIgnoreCase("COMMENT")) {
+            return NotificationType.COMMENT;
+        } else if (event.name().equalsIgnoreCase("NEW_CONNECTION")) {
+            return NotificationType.NEW_CONNECTION;
         }
         return null;
     }
